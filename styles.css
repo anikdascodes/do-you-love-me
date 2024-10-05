@@ -1,0 +1,137 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #FFF0F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 3rem;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.title {
+    font-family: 'Pacifico', cursive;
+    color: #FF69B4;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button-container {
+    display: inline-flex;
+    background-color: #F0F0F0;
+    border-radius: 50px;
+    padding: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.8rem;
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+}
+
+.btn-yes {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-no {
+    background-color: #FF6B6B;
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.result {
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FF69B4;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.result.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-try-again {
+    background-color: #4CAF50;
+    color: white;
+    margin-top: 1.5rem;
+    padding: 0.8rem 2rem;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.hearts-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hearts-bg::before {
+    content: '❤️';
+    position: absolute;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 40px,
+        #FF69B4 40px,
+        #FF69B4 80px
+    );
+    background-size: 60px 60px;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.1;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
